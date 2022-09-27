@@ -4,6 +4,7 @@ package com.spring.sprintbootsecuritylearn.controller;
 import com.spring.sprintbootsecuritylearn.models.User;
 import com.spring.sprintbootsecuritylearn.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public class UserController {
     }
 
     // get single user
+
+//    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{username}")
     public User getSingleUser(@PathVariable("username") String username){
         return this.userService.getSingleUser(username);
